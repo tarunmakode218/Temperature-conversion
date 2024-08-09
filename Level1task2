@@ -1,0 +1,27 @@
+# Level1task2 "Temperature conversion"
+
+def convert_temperature(value, unit):
+    if unit.lower() == 'c':
+        converted = (value * 9/5) + 32
+        return converted, 'F'
+    elif unit.lower() == 'f':
+        converted = (value - 32) * 5/9
+        return converted, 'C'
+    else:
+        return None, None
+
+def main():
+    try:
+        temp_value = float(input("Enter the temperature value: "))
+        temp_unit = input("Enter the unit of measurement (C for Celsius, F for Fahrenheit):")
+        converted_value, converted_unit = convert_temperature(temp_value, temp_unit)
+
+        if converted_value is not None:
+            print(f"The converted temperature is {converted_value:.2f} {converted_unit}")
+        else:
+            print("Invalid unit of measurement entered. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
+    except ValueError:
+        print("Invalid input. Please enter a numerical temperature value.")
+
+if __name__ == "__main__":
+    main()
